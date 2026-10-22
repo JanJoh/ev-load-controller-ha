@@ -1,0 +1,137 @@
+{
+  "config": {
+    "step": {
+      "user": {
+        "title": "Elbil laststyrning",
+        "description": "Välj sensorerna som styrningen läser. Inget skickas ännu till laddboxen (skuggläge).",
+        "data": {
+          "dlm_limits_l1": "Lastbalanserarens DLM-gräns L1",
+          "dlm_limits_l2": "Lastbalanserarens DLM-gräns L2",
+          "dlm_limits_l3": "Lastbalanserarens DLM-gräns L3",
+          "grid_currents_l1": "Ström från nätet L1",
+          "grid_currents_l2": "Ström från nätet L2",
+          "grid_currents_l3": "Ström från nätet L3",
+          "charger_currents_l1": "Laddboxens ström L1",
+          "charger_currents_l2": "Laddboxens ström L2",
+          "charger_currents_l3": "Laddboxens ström L3",
+          "connector_status": "Laddboxens kontaktstatus",
+          "price": "Elpris (valfritt)"
+        },
+        "data_description": {
+          "connector_status": "Kontaktstatus i OCPP-stil, t.ex. Available / Charging / SuspendedEV.",
+          "price": "Används av läget pristak."
+        }
+      }
+    },
+    "abort": {
+      "single_instance_allowed": "Bara en elbil-laststyrning kan konfigureras."
+    }
+  },
+  "options": {
+    "step": {
+      "init": {
+        "title": "Elbil laststyrning",
+        "description": "Välj sensorerna som styrningen läser. Inget skickas ännu till laddboxen (skuggläge).",
+        "data": {
+          "dlm_limits_l1": "Lastbalanserarens DLM-gräns L1",
+          "dlm_limits_l2": "Lastbalanserarens DLM-gräns L2",
+          "dlm_limits_l3": "Lastbalanserarens DLM-gräns L3",
+          "grid_currents_l1": "Ström från nätet L1",
+          "grid_currents_l2": "Ström från nätet L2",
+          "grid_currents_l3": "Ström från nätet L3",
+          "charger_currents_l1": "Laddboxens ström L1",
+          "charger_currents_l2": "Laddboxens ström L2",
+          "charger_currents_l3": "Laddboxens ström L3",
+          "connector_status": "Laddboxens kontaktstatus",
+          "price": "Elpris (valfritt)"
+        },
+        "data_description": {
+          "connector_status": "Kontaktstatus i OCPP-stil, t.ex. Available / Charging / SuspendedEV.",
+          "price": "Används av läget pristak."
+        }
+      }
+    }
+  },
+  "entity": {
+    "number": {
+      "main_fuse": {
+        "name": "Huvudsäkring"
+      },
+      "margin": {
+        "name": "Säkerhetsmarginal"
+      },
+      "max_current": {
+        "name": "Max laddström"
+      },
+      "data_timeout": {
+        "name": "Datatimeout"
+      },
+      "raise_delay": {
+        "name": "Fördröjning vid höjning"
+      },
+      "price_cap": {
+        "name": "Pristak"
+      }
+    },
+    "select": {
+      "fallback": {
+        "name": "Reservläge",
+        "state": {
+          "min_current": "Begränsa till 6 A",
+          "pause": "Pausa",
+          "own_calculation": "Egen beräkning"
+        }
+      },
+      "price_mode": {
+        "name": "Prisläge",
+        "state": {
+          "charge_now": "Ladda nu",
+          "price_cap": "Pristak",
+          "off": "Av"
+        }
+      },
+      "access": {
+        "name": "Laddboxåtkomst",
+        "state": {
+          "open": "Öppen",
+          "locked_for_new": "Låst för nya",
+          "locked": "Låst"
+        }
+      }
+    },
+    "sensor": {
+      "current_limit": {
+        "name": "Strömgräns",
+        "state_attributes": {
+          "target": {
+            "name": "Mål"
+          },
+          "raise_pending": {
+            "name": "Höjning väntar"
+          },
+          "source": {
+            "name": "Källa"
+          },
+          "limiting_phase": {
+            "name": "Begränsande fas"
+          }
+        }
+      },
+      "reason": {
+        "name": "Orsak"
+      },
+      "active_phases": {
+        "name": "Aktiva faser"
+      },
+      "availability": {
+        "name": "Tillgänglighet",
+        "state": {
+          "operative": "I drift",
+          "inoperative_scheduled": "Ur drift efter pågående session",
+          "inoperative": "Ur drift",
+          "inoperative_stop": "Stoppad och ur drift"
+        }
+      }
+    }
+  }
+}
