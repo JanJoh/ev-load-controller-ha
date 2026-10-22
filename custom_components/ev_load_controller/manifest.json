@@ -1,0 +1,18 @@
+{
+  "domain": "ev_load_controller",
+  "name": "EV Load Controller",
+  "version": "0.1.0",
+  "config_flow": true,
+  "codeowners": [
+    "@JanJoh"
+  ],
+  "documentation": "https://github.com/JanJoh/ev-load-controller-ha",
+  "issue_tracker": "https://github.com/JanJoh/ev-load-controller-ha/issues",
+  "iot_class": "calculated",
+  "integration_type": "service",
+  "single_config_entry": true,
+  "loggers": [
+    "custom_components.ev_load_controller"
+  ],
+  "requirements": []
+}

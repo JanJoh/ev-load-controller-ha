@@ -1,0 +1,137 @@
+{
+  "config": {
+    "step": {
+      "user": {
+        "title": "EV load controller",
+        "description": "Pick the sensors the controller reads. Nothing is sent to the charger yet (shadow mode).",
+        "data": {
+          "dlm_limits_l1": "Load balancer DLM limit L1",
+          "dlm_limits_l2": "Load balancer DLM limit L2",
+          "dlm_limits_l3": "Load balancer DLM limit L3",
+          "grid_currents_l1": "Grid current L1",
+          "grid_currents_l2": "Grid current L2",
+          "grid_currents_l3": "Grid current L3",
+          "charger_currents_l1": "Charger current L1",
+          "charger_currents_l2": "Charger current L2",
+          "charger_currents_l3": "Charger current L3",
+          "connector_status": "Charger connector status",
+          "price": "Electricity price (optional)"
+        },
+        "data_description": {
+          "connector_status": "OCPP-style connector status, e.g. Available / Charging / SuspendedEV.",
+          "price": "Used by the price cap mode."
+        }
+      }
+    },
+    "abort": {
+      "single_instance_allowed": "Only one EV load controller can be set up."
+    }
+  },
+  "options": {
+    "step": {
+      "init": {
+        "title": "EV load controller",
+        "description": "Pick the sensors the controller reads. Nothing is sent to the charger yet (shadow mode).",
+        "data": {
+          "dlm_limits_l1": "Load balancer DLM limit L1",
+          "dlm_limits_l2": "Load balancer DLM limit L2",
+          "dlm_limits_l3": "Load balancer DLM limit L3",
+          "grid_currents_l1": "Grid current L1",
+          "grid_currents_l2": "Grid current L2",
+          "grid_currents_l3": "Grid current L3",
+          "charger_currents_l1": "Charger current L1",
+          "charger_currents_l2": "Charger current L2",
+          "charger_currents_l3": "Charger current L3",
+          "connector_status": "Charger connector status",
+          "price": "Electricity price (optional)"
+        },
+        "data_description": {
+          "connector_status": "OCPP-style connector status, e.g. Available / Charging / SuspendedEV.",
+          "price": "Used by the price cap mode."
+        }
+      }
+    }
+  },
+  "entity": {
+    "number": {
+      "main_fuse": {
+        "name": "Main fuse"
+      },
+      "margin": {
+        "name": "Safety margin"
+      },
+      "max_current": {
+        "name": "Max charging current"
+      },
+      "data_timeout": {
+        "name": "Data timeout"
+      },
+      "raise_delay": {
+        "name": "Raise delay"
+      },
+      "price_cap": {
+        "name": "Price cap"
+      }
+    },
+    "select": {
+      "fallback": {
+        "name": "Fallback mode",
+        "state": {
+          "min_current": "Limit to 6 A",
+          "pause": "Pause",
+          "own_calculation": "Own calculation"
+        }
+      },
+      "price_mode": {
+        "name": "Price mode",
+        "state": {
+          "charge_now": "Charge now",
+          "price_cap": "Price cap",
+          "off": "Off"
+        }
+      },
+      "access": {
+        "name": "Charger access",
+        "state": {
+          "open": "Open",
+          "locked_for_new": "Locked for new sessions",
+          "locked": "Locked"
+        }
+      }
+    },
+    "sensor": {
+      "current_limit": {
+        "name": "Current limit",
+        "state_attributes": {
+          "target": {
+            "name": "Target"
+          },
+          "raise_pending": {
+            "name": "Raise pending"
+          },
+          "source": {
+            "name": "Source"
+          },
+          "limiting_phase": {
+            "name": "Limiting phase"
+          }
+        }
+      },
+      "reason": {
+        "name": "Reason"
+      },
+      "active_phases": {
+        "name": "Active phases"
+      },
+      "availability": {
+        "name": "Availability",
+        "state": {
+          "operative": "Operative",
+          "inoperative_scheduled": "Inoperative after current session",
+          "inoperative": "Inoperative",
+          "inoperative_stop": "Stopped and inoperative"
+        }
+      }
+    }
+  }
+}
